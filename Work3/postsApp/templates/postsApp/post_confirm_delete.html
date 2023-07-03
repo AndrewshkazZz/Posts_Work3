@@ -1,0 +1,6 @@
+<a href="{% url 'posts' %}">Вернуться</a>
+<form method="POST">
+    {% csrf_token %}
+    <p>Вы точно хотите удалить это объявление? "{{post}}"</p>
+    <input type="submit" value="Удалить">
+</form>

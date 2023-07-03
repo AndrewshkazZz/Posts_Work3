@@ -1,0 +1,27 @@
+{% if request.user.is_authenticated %}
+<p>{{request.user}}</p>
+<a href="{% url 'logout' %}">Выйти</a>
+{% else %}
+<a href="{% url 'login' %}">Войти</a>
+{% endif %}
+
+<hr>
+<h2>Список объявлений</h2>
+<a href="{% url 'post-create' %}">Создать объявление</a>
+
+<table>
+    <tr>
+        <th>Item</th>
+
+    </tr>
+    {% for post in postlist %}
+    <tr>
+        <td>{{post.title}}</td>
+        <td><a href="{% url 'post' post.id %}">Подробнее</a></td>
+        <td><a href="{% url 'post-update' post.id %}">Изменить</a></td>
+        <td><a href="{% url 'post-delete' post.id %}">Удалить</a></td>
+    </tr>
+    {% empty %}
+        <h2>Нет объявлений</h2>
+    {% endfor %}
+</table>

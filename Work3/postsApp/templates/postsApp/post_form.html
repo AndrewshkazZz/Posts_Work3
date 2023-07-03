@@ -1,0 +1,8 @@
+<h2>Создание объявления</h2>
+<a href="{% url 'posts' %}">Вернуться</a>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Отправить">
+</form>
+
